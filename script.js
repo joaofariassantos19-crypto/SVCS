@@ -1,5 +1,3 @@
-// [file-tag: code-generated-file-0-1781007457736146753]
-// Base de dados das receitas criativas
 const receitasDados = {
     "talos": {
         titulo: "Sopa Nutritiva de Talos e Legumes",
@@ -7,114 +5,98 @@ const receitasDados = {
             "2 xícaras de talos bem lavados (couve, brócolis ou espinafre)",
             "2 batatas médias picadas",
             "1 cenoura picada",
-            "1 cebola pequena e 2 dentes de alho",
-            "1 colher de sopa de azeite ou óleo",
+            "1 colher de sopa de azeite",
             "Sal e temperos a gosto"
         ],
         passos: [
-            "Refogue a cebola e o alho no azeite até dourarem.",
-            "Adicione os talos picados, as batatas e a cenoura na panela.",
-            "Cubra com água, adicione o sal e deixe cozinhar até que tudo esteja bem macio.",
-            "Se preferir uma sopa cremosa, bata tudo no liquidificador. Sirva quente!"
+            "Refogue alho e cebola no azeite.",
+            "Adicione os talos picados, as batatas e a cenoura.",
+            "Cubra com água e cozinhe até amaciar.",
+            "Bata no liquidificador se preferir consistência de creme."
         ]
     },
     "cascas-banana": {
-        titulo: "Bolo Sustentável de Casca de Banana",
+        titulo: "Bolo de Casca de Banana",
         ingredientes: [
-            "Cascas de 4 bananas (bem lavadas e picadas)",
+            "Cascas de 4 bananas lavadas",
             "2 ovos",
             "2 xícaras de leite",
-            "2 colheres de sopa de manteiga",
+            "2 colheres de manteiga",
             "2 xícaras de açúcar",
             "3 xícaras de farinha de trigo",
-            "1 colher de sopa de fermento em pó"
+            "1 colher de fermento"
         ],
         passos: [
-            "Bata no liquidificador as cascas de banana, os ovos, o leite, a manteiga e o açúcar.",
-            "Despeje essa mistura em uma tigela e adicione a farinha de trigo aos poucos, misturando bem.",
-            "Por último, adicione o fermento em pó e misture delicadamente.",
-            "Derrame em uma forma untada e asse em forno médio (180°C) por cerca de 30 minutos."
+            "Bata as cascas, ovos, leite, manteiga e açúcar no liquidificador.",
+            "Misture com a farinha em uma tigela separada.",
+            "Adicione o fermento e asse por 30 minutos a 180°C."
         ]
     },
     "cascas-batata": {
-        titulo: "Chips Crocantes de Casca de Batata",
+        titulo: "Chips de Casca de Batata",
         ingredientes: [
-            "Cascas de batatas bem lavadas e secas",
-            "1 colher de sopa de azeite",
-            "Sal, orégano e páprica a gosto"
+            "Cascas de batatas limpas e bem secas",
+            "1 colher de azeite",
+            "Sal e temperos a gosto"
         ],
         passos: [
-            "Certifique-se de que as cascas estão completamente secas usando um pano limpo.",
-            "Coloque as cascas em uma assadeira e regue com o azeite.",
-            "Adicione o sal, o orégano e a páprica, misturando bem com as mãos para espalhar o tempero.",
-            "Leve ao forno preaquecido a 200°C por 15 a 20 minutos ou até ficarem bem crocantes."
+            "Espalhe as cascas secas em uma assadeira.",
+            "Regue com azeite e misture os temperos.",
+            "Asse a 200°C por 15 minutos até dourar."
         ]
     },
     "arroz": {
-        titulo: "Bolinho de Arroz de Forno Prático",
+        titulo: "Bolinho de Arroz de Forno",
         ingredientes: [
-            "2 xícaras de sobras de arroz cozido",
-            "1/2 xícara de queijo ralado (opcional)",
-            "1/2 xícara de leite",
-            "2 colheres de sopa de cheiro-verde picado",
+            "2 xícaras de arroz cozido amanhecido",
             "1 ovo",
-            "3 colheres de sopa de farinha de trigo",
-            "1 colher de chá de fermento em pó"
+            "1/2 xícara de leite",
+            "3 colheres de farinha de trigo",
+            "Tempero verde e sal"
         ],
         passos: [
-            "Em uma tigela, misture bem o arroz, o queijo ralado, o cheiro-verde, o ovo e o leite.",
-            "Adicione a farinha de trigo e o fermento por último, mexendo até formar uma massa liga.",
-            "Com o auxílio de duas colheres, molde os bolinhos e coloque-os em uma fôrma untada.",
-            "Asse em forno preaquecido a 200°C por aproximadamente 20 a 25 minutos até dourarem."
+            "Misture todos os ingredientes em uma bacia.",
+            "Molde os bolinhos usando duas colheres.",
+            "Coloque em forma untada e asse por 20 minutos a 200°C."
         ]
     }
 };
 
-// Elementos da Calculadora
 const inputAlimento = document.getElementById('food-weight');
 const btnCalcular = document.getElementById('btn-calcular');
 const resDinheiro = document.getElementById('res-dinheiro');
 const resAgua = document.getElementById('res-agua');
-
-// Elementos das Receitas
 const ingredienteSelect = document.getElementById('ingredient-select');
 const recipeDisplay = document.getElementById('recipe-display');
 const recipeTitle = document.getElementById('recipe-title');
 const recipeIngredientsList = document.getElementById('recipe-ingredients-list');
 const recipeStepsList = document.getElementById('recipe-steps-list');
 
-// Lógica da Calculadora de Impacto
 btnCalcular.addEventListener('click', () => {
     const pesoSemanal = parseFloat(inputAlimento.value);
 
     if (isNaN(pesoSemanal) || pesoSemanal <= 0) {
-        alert("Por favor, insira um valor válido de desperdício em quilos.");
+        alert("Por favor, insira um peso válido.");
         return;
     }
 
-    // Projeção Anual (52 semanas)
     const pesoAnual = pesoSemanal * 52;
+    const prejuizoDinheiroAnual = pesoAnual * 12; 
+    const aguaDesperdicadaAnual = pesoAnual * 1500; 
 
-    // Métricas: Custo médio estimado de R$12 por kg de comida aproveitável
-    // E pegada hídrica agregada estimada de 1.500 litros de água por kg produzido.
-    const prejuizoDinheiroAnual = pesoAnual * 12;
-    const aguaDesperdicadaAnual = pesoAnual * 1500;
-
-    // Atualizar os campos formatados para o formato brasileiro
     resDinheiro.textContent = `R$ ${prejuizoDinheiroAnual.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     resAgua.textContent = `${aguaDesperdicadaAnual.toLocaleString('pt-BR')} Litros`;
 });
 
-// Lógica do Gerador Automático de Receitas
 ingredienteSelect.addEventListener('change', (e) => {
-    const ingredienteSelecionado = e.target.value;
+    const selecionado = e.target.value;
 
-    if (!ingredienteSelecionado) {
+    if (!selecionado) {
         recipeDisplay.classList.add('hidden');
         return;
     }
 
-    const receita = receitasDados[ingredienteSelecionado];
+    const receita = receitasDados[selecionado];
 
     if (receita) {
         recipeIngredientsList.innerHTML = "";
@@ -134,6 +116,5 @@ ingredienteSelect.addEventListener('change', (e) => {
         });
 
         recipeDisplay.classList.remove('hidden');
-        recipeDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 });
