@@ -1,0 +1,299 @@
+/* -----------------------------------------------
+   Estilos Globais e Variáveis (Tons de Verde)
+-------------------------------------------------- */
+:root {
+    --primary-color: #2e7d32;       /* Verde Escuro Sustentável */
+    --primary-light: #4caf50;       /* Verde Vivo */
+    --primary-bg: #f1f8e9;          /* Fundo Verde Bem Claro */
+    --text-dark: #1b5e20;           /* Texto Verde Bem Escuro */
+    --text-body: #37474f;           /* Texto Geral */
+    --white: #ffffff;
+    --gray-light: #f5f5f5;
+    --border-color: #c8e6c9;
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #fafdfa;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Componentes de Botões e Títulos */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #616161;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header / Navegação */
+header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text-dark);
+}
+
+.logo-text .highlight {
+    color: var(--primary-light);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-body);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-bg) 0%, #ffffff 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    color: var(--primary-light);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Pilares / Foco do Projeto */
+.pillars {
+    padding: 6px 0 60px 0;
+    margin-top: -30px;
+}
+
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.pillar-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-top: 4px solid var(--primary-light);
+}
+
+.pillar-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+/* Calculadora */
+.calculator-section {
+    background-color: #f7fbf7;
+    padding: 60px 0;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.calc-card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #e8f5e9;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-light);
+}
+
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--primary-bg);
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.result-info h4 {
+    font-size: 22px;
+    color: var(--text-dark);
+}
+
+/* Receitas */
+.recipes-section {
+    padding: 60px 0;
+}
+
+.recipe-selector {
+    max-width: 500px;
+    margin: 0 auto 35px auto;
+    text-align: center;
+}
+
+.recipe-selector select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.recipe-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+#recipe-title {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px;
+}
+
+.recipe-content {
+    padding: 30px;
+}
+
+.recipe-ingredients, .recipe-steps {
+    margin-bottom: 25px;
+}
+
+footer {
+    background-color: var(--text-dark);
+    color: #e8f5e9;
+    padding: 40px 0;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .hero h1 { font-size: 30px; }
+}

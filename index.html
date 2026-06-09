@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho - Desperdício Zero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">Agrinho <span class="highlight">EcoPCP</span></span>
+            </div>
+            <nav>
+                <a href="#calculadora">Calculadora</a>
+                <a href="#receitas">Receitas Inteligentes</a>
+                <a href="#impacto">Nosso Foco</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <h1>Controle de Produção Doméstica:<br><span class="gradient-text">Evite o Desperdício Alimentar</span></h1>
+            <p>Descubra o impacto real do descarte de alimentos na sua casa. Economize dinheiro, poupe os recursos do nosso planeta e transforme sobras em refeições deliciosas.</p>
+            <a href="#calculadora" class="btn">Começar a Calcular</a>
+        </div>
+    </section>
+
+    <section id="impacto" class="pillars">
+        <div class="container pillars-container">
+            <div class="pillar-card">
+                <div class="pillar-icon">🥗</div>
+                <h3>Combate à Fome</h3>
+                <p>Aprender a aproveitar o alimento integralmente é o primeiro passo para uma sociedade mais justa e consciente.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🌍</div>
+                <h3>Consumo Consciente</h3>
+                <p>Cada talo ou casca jogado fora carrega consigo litros de água e energia que foram usados na produção agrícola.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">💰</div>
+                <h3>Inteligência Financeira</h3>
+                <p>Reduzir o desperdício é a forma mais rápida e inteligente de fazer o orçamento familiar render mais.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculadora" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Calculadora de Impacto</h2>
+                <p>Insira a estimativa de alimentos desperdiçados pela sua família por semana para ver a mágica dos dados.</p>
+            </div>
+
+            <div class="calc-grid">
+                <div class="calc-card input-card">
+                    <h3>Dados Semanais</h3>
+                    <div class="input-group">
+                        <label for="food-weight">Quantidade de comida jogada fora (em kg):</label>
+                        <input type="number" id="food-weight" min="0" step="0.1" placeholder="Ex: 2.5">
+                    </div>
+                    <button id="btn-calcular" class="btn btn-full">Calcular Impacto</button>
+                </div>
+
+                <div class="calc-card results-card">
+                    <h3>Seu Impacto Estimado</h3>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-icon">💸</span>
+                            <div class="result-info">
+                                <h4 id="res-dinheiro">R$ 0,00</h4>
+                                <p>Prejuízo Financeiro / ano</p>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-icon">💧</span>
+                            <div class="result-info">
+                                <h4 id="res-agua">0 L</h4>
+                                <p>Água Desperdiçada / ano</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="calc-note">*Cálculos baseados em médias de pegada hídrica e custo médio do quilo de alimento regulado pelo PCP agrícola.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="receitas" class="recipes-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Receitas Inteligentes do Agrinho</h2>
+                <p>Selecione o que sobrou na sua cozinha para gerar uma receita sustentável e cheia de nutrientes.</p>
+            </div>
+
+            <div class="recipe-selector">
+                <label for="ingredient-select">O que você tem disponível?</label>
+                <select id="ingredient-select">
+                    <option value="">-- Escolha um ingrediente --</option>
+                    <option value="talos">Talos (Couve, Brócolis, Espinafre)</option>
+                    <option value="cascas-banana">Cascas de Banana</option>
+                    <option value="cascas-batata">Cascas de Batata ou Cenoura</option>
+                    <option value="arroz">Sobras de Arroz Cozido</option>
+                </select>
+            </div>
+
+            <div id="recipe-display" class="recipe-display hidden">
+                <div class="recipe-card">
+                    <h3 id="recipe-title">Nome da Receita</h3>
+                    <div class="recipe-content">
+                        <div class="recipe-ingredients">
+                            <h4><span class="icon">🛒</span> Ingredientes:</h4>
+                            <ul id="recipe-ingredients-list"></ul>
+                        </div>
+                        <div class="recipe-steps">
+                            <h4><span class="icon">🍳</span> Modo de Preparo:</h4>
+                            <ol id="recipe-steps-list"></ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2026 Projeto Agrinho - Tecnologia e Sustentabilidade no Campo e na Cidade.</p>
+            <p>Desenvolvido para incentivar o Planejamento e Controle de Produção Alimentar Inteligente.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
